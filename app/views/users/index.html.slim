@@ -1,0 +1,19 @@
+= form_with(url: users_path) do |f|
+  = f.file_field 'file', required: true, accept: ".csv"
+  = f.submit 'Import'
+
+-if @users.present?
+  table
+    thead
+      tr
+        th.asc name
+        th date
+        th number
+        th description
+    tbody#users
+      - @users.each do |user|
+        tr
+          td = user.name
+          td = user.date
+          td = user.number
+          td = user.description
