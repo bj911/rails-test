@@ -3,6 +3,10 @@
   = f.submit 'Import'
 
 -if @users.present?
+  = text_field_tag 'search', nil, placeholder: 'Enter search name'
+  .search = button_tag 'Search'
+  .message Not found
+
   table
     thead
       tr

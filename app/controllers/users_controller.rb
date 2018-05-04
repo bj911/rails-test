@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order(order_query)
+    @users =
+      if params[:search].present?
+        User.where(name: params[:search])
+      else
+        User.all.order(order_query)
+      end
   end
 
   def create
